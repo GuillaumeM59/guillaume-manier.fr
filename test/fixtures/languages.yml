@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  progress: 1
+  logolang: MyString
+  logolang_cache: MyString
+
+two:
+  name: MyString
+  description: MyString
+  progress: 1
+  logolang: MyString
+  logolang_cache: MyString

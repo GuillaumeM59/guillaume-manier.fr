@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @language.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @language.description %>
+</p>
+
+<p>
+  <strong>Progress:</strong>
+  <%= @language.progress %>
+</p>
+
+<p>
+  <strong>Logolang:</strong>
+  <%= @language.logolang %>
+</p>
+
+<p>
+  <strong>Logolang cache:</strong>
+  <%= @language.logolang_cache %>
+</p>
+
+<%= link_to 'Edit', edit_language_path(@language) %> |
+<%= link_to 'Back', languages_path %>

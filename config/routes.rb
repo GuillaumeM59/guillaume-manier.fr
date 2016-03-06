@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :subscribers
+  resources :languages
+  resources :projects
   devise_for :users
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
