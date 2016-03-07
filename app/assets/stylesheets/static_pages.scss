@@ -4,3 +4,26 @@
 body {
   background-image: url("../img/8.jpg");
 }
+.container {
+  width: 90% !important;
+}
+header{
+    color: #b1b1b1;
+}
+header h1,h3 {
+  text-align: center;
+}
+header h1 {margin: 0}
+header .progress {
+  margin: 0;
+  height: 12px;
+}
+.progress-bar-info {background-color: rgb(72, 73, 73) !important}
+header img { margin-top: 5px}
+header i {margin: 0 7px}
+
+.cvseebtn {padding-top: 1px; padding-top: 1px}
+.cvdlbtn {
+  padding-top: 2px;
+}
+.cvseebtn,.cvdlbtn {margin-left: 10px; margin-right: 10px}
