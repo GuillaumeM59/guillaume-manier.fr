@@ -19,6 +19,8 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'bootstrap_form'
 # Css & Js library
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem "font-awesome-rails"
 # Hook locally mail
 # Run deamon by call him in termilal like so : maicatcher
 # Then go  http://127.0.0.1:1080
@@ -49,6 +51,10 @@ group :development, :test do
   gem 'pry'
   gem 'mailcatcher'
   gem 'quiet_assets'
+  gem 'rack-livereload'
+  gem 'guard'
+
+  gem 'guard-livereload', require: false
   # Use ActiveModel has_secure_password
   # gem 'bcrypt', '~> 3.1.7'
   # Use Unicorn as the app server
