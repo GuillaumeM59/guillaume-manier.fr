@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @friend.name %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @friend.url %>
+</p>
+
+<p>
+  <strong>Logobrand:</strong>
+  <%= @friend.logobrand %>
+</p>
+
+<p>
+  <strong>Logobrand cache:</strong>
+  <%= @friend.logobrand_cache %>
+</p>
+
+<%= link_to 'Edit', edit_friend_path(@friend) %> |
+<%= link_to 'Back', friends_path %>
