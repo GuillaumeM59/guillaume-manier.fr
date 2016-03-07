@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160306170506) do
+ActiveRecord::Schema.define(version: 20160307203230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20160306170506) do
     t.string   "logolang_cache"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.string   "name"
+    t.string   "place"
+    t.datetime "date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "flyer"
+    t.string   "flyer_cache"
   end
 
   create_table "projects", force: :cascade do |t|

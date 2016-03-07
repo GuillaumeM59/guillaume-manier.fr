@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :meetings
   get 'static_pages/home'
 
   resources :subscribers
