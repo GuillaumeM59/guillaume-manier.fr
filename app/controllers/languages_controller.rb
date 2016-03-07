@@ -6,7 +6,6 @@ class LanguagesController < ApplicationController
   def index
     @languages = Language.all
   end
-
   # GET /languages/1
   # GET /languages/1.json
   def show

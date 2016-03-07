@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :friends
+  resources :meetings
   get 'static_pages/home'
 
   resources :subscribers
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
+  root 'static_pages#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
