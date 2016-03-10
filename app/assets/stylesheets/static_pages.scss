@@ -28,6 +28,7 @@ header .progress {
 .progress-bar-info {background-color: rgb(72, 73, 73) !important}
 header img { margin-top: 5px}
 header i {margin: 0 7px}
+.iconsfollow a:hover {color: rgb(255, 255, 255)}
 
 .cvseebtn {padding-top: 1px; padding-top: 1px}
 .cvdlbtn {
@@ -39,3 +40,117 @@ header i {margin: 0 7px}
 //////////////////////////////////////////////////////////
 ///                 SECTION
 //////////////////////////////////////////////////////////
+
+section button {background-image: url("../img/degradé.png");
+background-size: contain;
+width:40%;
+color: #b1b1b1;
+font-weight: 500;
+margin-top: 1%;
+border-radius: 10px}
+
+aside button {background-image: url("../img/degradé.png");
+background-size: contain;
+width:40%;
+color: #b1b1b1;
+font-weight: 500;
+margin-top: 1%;
+margin-bottom: 2%;
+border-radius: 10px}
+
+.aboutme {
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 2px solid rgb(185, 185, 185);
+  border-radius: 8px;
+  padding: 15px 0;
+  color: white;
+  margin-top: 2%;
+}
+
+
+.meeting .place,.meeting .date {margin-bottom: 0; font-weight: bold}
+
+.carou {margin-top: 3%}
+.carousel { width: 80%; margin-left: 10%}
+
+
+.learning .progress {
+  margin-top: 4%
+}
+
+
+
+//////////////////////////////////////////////////////////
+///                 CV
+//////////////////////////////////////////////////////////
+
+.cv {background-color: white ;
+color: black;
+}
+.cv .progress {margin-top: 5%;
+border: 1px solid black}
+.cv h1, .cv h3 {font-weight: bold}
+.cv h2, .cv h3 {color: rgb(12, 14, 78)}
+.cv h1, .cv h3 {color: rgb(12, 14, 78)}
+.cv ul li,.hobbies p {font-size: 1.5em; margin: 1% 0; line-height: 1.2}
+.cv ul li ul {margin: 0 5%; line-height: 1.2}
+
+
+
+//////////////////////////////////////////////////////////
+///                 PLUGINS
+//////////////////////////////////////////////////////////
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+.tagline {
+  margin: 20px 0 0;
+  font-size: 2em;
+  font-weight: 600;
+  -webkit-transition: all 0.7s ease-in-out;
+  -moz-transition: all 0.7s ease-in-out;
+  -o-transition: all 0.7s ease-in-out;
+  -ms-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out; }
+
+.sub-tagline {
+  margin: 0;
+  font-size: 1.2em;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.7s ease-in-out;
+  -moz-transition: all 0.7s ease-in-out;
+  -o-transition: all 0.7s ease-in-out;
+  -ms-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out; }
+
+.lift-text .tagline {
+  margin: 0;
+  font-size: 2.5em}
+.lift-text .sub-tagline {
+  opacity: 1;
+margin-top: 5px}
+
+.lsize {	width: 75% !important};
+.xlsize { width: 90% !important};

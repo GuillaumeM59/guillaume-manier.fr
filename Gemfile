@@ -20,7 +20,12 @@ gem 'bootstrap_form'
 # Css & Js library
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem "typedjs-rails"
 
+
+#PDF
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 # Hook locally mail
 # Run deamon by call him in termilal like so : maicatcher
 # Then go  http://127.0.0.1:1080

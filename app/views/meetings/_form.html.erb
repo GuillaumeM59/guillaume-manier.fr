@@ -20,8 +20,16 @@
     <%= f.text_field :place %>
   </div>
   <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
     <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :flyer %><br>
+    <%= f.file_field :flyer %>
   </div>
   <div class="actions">
     <%= f.submit %>
