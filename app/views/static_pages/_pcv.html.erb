@@ -1,14 +1,29 @@
    <meta charset='utf-8' />
+   <% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<%= wicked_pdf_stylesheet_link_tag('pdf.css')%>
+ <%end%>
+
+
+
+
 <div class="container-fluid cv">
   <div class="row">
-
+    <% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<div class="pdfdiv">
+<%else%>
 <div class="col-sm-12 col-md-7">
+    <%end%>
 
 
 <h2>MANIER Guillaume</h2>
 <h1>Développeur Web Junior</h1>
 </div>
+
+<% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<div class="pdfdiv num2">
+<%else%>
 <div class="col-sm-12 col-md-5">
+  <%end%>
 <ul class="list-unstyled text-center civil">
 <li>+33 (0)6 49 72 89 65</li>
 <li>dev.guillaumem59@gmail.com</li>
@@ -18,16 +33,24 @@
 <li>Permis B véhiculé</li>
 </ul>
 </div>
-
+<% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<div class="pdfdiv">
+<%else%>
 <div class="col-sm-12 col-md-7">
+  <%end%>
 
   <h3>Compétences (au <%= Time.current.to_date%>)</h3>
   <div class="row">
     <% Language.all.order(:progress).reverse.each do |c| %>
+    <% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<div style="width:45%;display:inline-block">
+    <%else%>
     <div class="col-sm-12 col-md-6">
+        <%end%>
       <div class="row">
 
-  <div class="col-sm-9">
+
+        <div class="col-xs-9">
     <div class="progress ">
       <div class="progress-bar progress-bar-info progress-bar-striped active lang-bar" role="progressbar" aria-valuenow="<%=c.progress%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=c.progress%>%">
         <%=c.name%>
@@ -35,7 +58,9 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-2">
+  <% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+  <%else%>
+  <div class="col-xs-2">
     <% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
     <%imgurl = Rails.root.to_s + "/public" + c.logolang.to_s %>
     <%= image_tag( imgurl , size: "30" , class: "img-responsive") %>
@@ -43,14 +68,18 @@
     <%= image_tag(c.logolang , class: "img-responsive") %>
     <%end%>
   </div>
+  <%end%>
 </div>
 </div>
 <%end%>
 </div>
 
 </div>
-
+<% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<div class="pdfdiv">
+<%else%>
 <div class="col-sm-12 col-md-5">
+  <%end%>
 
 <h3>Formations</h3>
 <ul class="list-unstyled text-center">
@@ -62,7 +91,11 @@
 </ul>
 </div>
 
+<% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<div class="pdfdiv">
+<%else%>
 <div class="col-sm-12 col-md-6">
+  <%end%>
 
 <h3>Expériences</h3>
 <ul class="list-unstyled">
@@ -82,7 +115,12 @@ Employé petite restauration, secrétariat,
 </ul>
 </div>
 
+
+<% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<div class="pdfdiv num6">
+<%else%>
 <div class="col-sm-12 col-md-6">
+  <%end%>
 
 <h3>Réalisations</h3>
 <ul class="text-center list-unstyled">
@@ -95,7 +133,7 @@ co-shop.fr</li>
 </div>
 </ul>
 
-<div class="col-sm-12 hobbies">
+<div class="col-xs-12 hobbies">
 
 <h3>Loisirs</h3>
 <p class="text-center">Séries, musique (auditeur), nouvelles technologies, arts pyrotechniques (spectateur), ...

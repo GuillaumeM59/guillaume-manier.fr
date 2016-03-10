@@ -12,7 +12,7 @@ class StaticPagesController < ApplicationController
      :template => 'static_pages/_pcv.html.erb',
      :save_to_file => Rails.root.join('public', "Guillaume_MANIER_CV.pdf"),
      :save_only    => true
-    #end
+
     send_file "#{Rails.root}/public/Guillaume_MANIER_CV.pdf", :type=>"application/pdf", :x_sendfile=>true
   end
 

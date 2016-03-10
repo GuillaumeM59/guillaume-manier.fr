@@ -12,6 +12,9 @@ h1,h2,h3,h4 {
 }
 h4 { font-weight: 700}
 
+a {color: #b1b1b1 }
+a:hover {color: rgb(255, 255, 255)}
+
 //////////////////////////////////////////////////////////
 ///                 HEADER
 //////////////////////////////////////////////////////////
@@ -28,7 +31,6 @@ header .progress {
 .progress-bar-info {background-color: rgb(72, 73, 73) !important}
 header img { margin-top: 5px}
 header i {margin: 0 7px}
-.iconsfollow a:hover {color: rgb(255, 255, 255)}
 
 .cvseebtn {padding-top: 1px; padding-top: 1px}
 .cvdlbtn {
@@ -154,3 +156,9 @@ margin-top: 5px}
 
 .lsize {	width: 75% !important};
 .xlsize { width: 90% !important};
+
+
+@media (max-width: 1200px) {
+  .carousel { width: 100% !important; margin-left: 0}
+  .container {width: 100% !important}
+}
