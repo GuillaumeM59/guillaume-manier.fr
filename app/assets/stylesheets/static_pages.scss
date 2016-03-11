@@ -74,13 +74,20 @@ border-radius: 10px}
 
 .carou {margin-top: 3%}
 .carousel { width: 80%; margin-left: 10%}
+.carousel-caption {
+  width:80%;
+  left: 10%;
+  background-color: rgba(22, 22, 22, 0.7);
+  border: 2px solid #b1b1b1;
+  border-radius: 10px;
+}
 
 
 .learning .progress {
   margin-top: 4%
 }
 
-
+.img-center {margin: 0 auto}
 
 //////////////////////////////////////////////////////////
 ///                 CV

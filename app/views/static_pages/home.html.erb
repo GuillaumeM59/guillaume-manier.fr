@@ -1,5 +1,7 @@
 <!-- subscribe modal  -->
 
+
+
 <div class="modal fade" id="subsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -7,9 +9,19 @@
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <h4 class="modal-title" id="myModalLabel">Newsletter Subscriptions</h4>
           </div>
-          <%= form_tag(controller: 'subscribers', action: 'create') do %>
+          <%= form_tag(controller: 'subscribers', action: 'create') do |f| %>
               <div class="modal-body">
-                    <p class="text-center"><%= text_field_tag :email, params[:email], placeholder: "Enter your email address" %></p>
+                <div class="field">
+                  <%= f.label :email %><br>
+                  <%= f.text_field :email %>
+                </div>
+                <div class="field">
+                  <%= f.label :subscribe %><br>
+                  <%= f.check_box :subscribe %>
+                </div>
+                <div class="actions">
+                  <%= f.submit %>
+                </div>
               </div>
               <div class="modal-footer">
                 <p class="text-centered"><%= submit_tag "Subscribe", class: "btn btn-primary" %></p>
@@ -99,17 +111,59 @@
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="myModalLabel">List of friends</h4>
               </div>
-              <%= form_tag(controller: 'subscribers', action: 'create') do %>
-                  <div class="modal-body">
-                        <p class="text-center"><%= text_field_tag :email, params[:email], placeholder: "Enter your email address" %></p>
+                  <div class="modal-body container">
+                    <div class="row">
+
+                    <% Friend.all.order(:created_at).reverse.each do |friend|%>
+                      <div class="col-sm-4 text-center">
+                        <%= link_to image_tag(friend.logobrand ,size:"120", class: "img-responsive image-rounded img-center"), friend.url%>
+                        <h4><%= friend.name %> </h4>
+                      </div>
+                    <%end%>
                   </div>
-                  <div class="modal-footer">
-                    <p class="text-centered"><%= submit_tag "Subscribe", class: "btn btn-primary" %></p>
                   </div>
-              <% end %>
             </div>
           </div>
         </div>
+
+
+        <!-- projects modal  -->
+        <div class="modal fade" id="projectsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog xlsize">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">List of Projects</h4>
+                  </div>
+                      <div class="modal-body container">
+                        <div class="row">
+
+                        <% Project.all.order(:created_at).each do |proj|%>
+                        <% a=[proj.lang_id1, proj.lang_id2, proj.lang_id3, proj.lang_id4, proj.lang_id4, proj.lang_id5, proj.lang_id6]%>
+                          <div class="col-sm-12 col-md-7 text-center">
+                            <%= link_to image_tag(proj.visual , class: "img-responsive image-rounded img-center"), proj.client_url%>
+                          </div>
+                            <div class="col-sm-12 col-md-5 text-center">
+                            <h4><%= proj.name %> </h4>
+                            <p><%=proj.description%></p>
+                            <p><% 6.times do |i|%>
+                            <% if a[i] != nil%>
+                              <%= image_tag(Language.where(id:a[i]).first.logolang, size:"50")%>,
+                            <%end%>
+                            <%end%></p>
+                            <div class="progress ">
+                              <div class="progress-bar progress-bar-info progress-bar-striped active lang-bar" role="progressbar" aria-valuenow="<%=proj.progress%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=proj.progress%>%">
+                                <%=proj.name%>
+                                <span class="sr-only"><%=proj.progress%>% Complete</span>
+                              </div>
+                            </div>
+                          </div>
+                        <%end%>
+                      </div>
+                      </div>
+                </div>
+              </div>
+            </div>
 
 
 
@@ -205,9 +259,10 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-              <% a=1%>
+              <% b=1%>
               <% Project.all.each do |proj|%>
-                    <%if a==1 %>
+              <% a=[proj.lang_id1, proj.lang_id2, proj.lang_id3, proj.lang_id4, proj.lang_id4, proj.lang_id5, proj.lang_id6]%>
+                    <%if b==1 %>
                     <div class="item active">
                       <%= image_tag(proj.visual , class: "img-responsive img-thumbnail")%>
                       <div class="carousel-caption text-center">
@@ -215,10 +270,18 @@
                       <p>
                         <%= proj.description %>
                       </p>
+                      <p>
+                        Technos: <% 6.times do |i|%>
+                        <% if a[i]!= nil%>
+                          <%= image_tag(Language.where(id:a[i]).first.logolang, size:"20")%>,
+                        <%end%>
+                        <%end%>
+                      </p>
+
                       </div>
                     </div>
                     <%else%>
-                       <% if a<4%>
+                       <% if b<4%>
                       <div class="item">
                         <%= image_tag(proj.visual , class: "img-responsive img-thumbnail")%>
                         <div class="carousel-caption text-center">
@@ -226,12 +289,19 @@
                         <p>
                           <%= proj.description %>
                         </p>
+                        <p>
+                          Technos: <% 6.times do |i|%>
+                          <% if a[i]!= nil%>
+                            <%= image_tag(Language.where(id:a[i]).first.logolang, size:"20")%>,
+                          <%end%>
+                          <%end%>
+                        </p>
                         </div>
                       </div>
                       <%end%>
                     <%end%>
 
-                <% a = a+1 %>
+                <% b = b+1 %>
               <%end%>
             </div>
 
@@ -246,7 +316,7 @@
             </a>
           </div>
 
-          <button type="button" name="button"><i class="fa fa-plus"></i> more projects</button>
+          <button type="button" name="button" data-toggle="modal" href="#projectsModal"><i class="fa fa-plus"></i> more projects</button>
         </div>
       </div>
     </section>
