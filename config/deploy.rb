@@ -4,6 +4,7 @@ lock '3.4.0'
 set :application, 'Portfolio'
 set :repo_url, 'git@github.com:GuillaumeM59/guillaume-manier.fr.git'
 set :deploy_to, '/home/deploy/portfolio'
+set :rails_env, 'production'
 
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}

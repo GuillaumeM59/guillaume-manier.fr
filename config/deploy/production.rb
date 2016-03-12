@@ -7,7 +7,7 @@
 role :app, %w{deploy@51.255.201.66}
 role :web, %w{deploy@51.255.201.66}
 role :db,  %w{deploy@51.255.201.66}
-
+set :rails_env, 'production'
 set :stage, :production
 server '51.255.201.66', user: 'deploy', roles: %w{web app}
 

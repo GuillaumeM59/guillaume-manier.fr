@@ -19,7 +19,7 @@ production:
   adapter: postgresql
   pool: 5
   timeout: 5000
-  database: db1/production
+  database: deploy
   username: deploy
   password: deployer59
   host: 'localhost'
