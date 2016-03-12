@@ -11,17 +11,7 @@
           </div>
           <%= form_tag(controller: 'subscribers', action: 'create') do |f| %>
               <div class="modal-body">
-                <div class="field">
-                  <%= f.label :email %><br>
-                  <%= f.text_field :email %>
-                </div>
-                <div class="field">
-                  <%= f.label :subscribe %><br>
-                  <%= f.check_box :subscribe %>
-                </div>
-                <div class="actions">
-                  <%= f.submit %>
-                </div>
+                
               </div>
               <div class="modal-footer">
                 <p class="text-centered"><%= submit_tag "Subscribe", class: "btn btn-primary" %></p>
