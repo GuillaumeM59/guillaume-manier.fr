@@ -1,23 +1,159 @@
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- subscribe modal  -->
+
+
+
+<div class="modal fade" id="subsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <h4 class="modal-title" id="myModalLabel">Newsletter Subscriptions</h4>
           </div>
-          <%= form_tag(controller: 'subscribers', action: 'create') do %>
+          <%= form_tag(controller: 'subscribers', action: 'create') do |f| %>
               <div class="modal-body">
-                    <p><%= text_field_tag :email, params[:email], placeholder: "Enter your email address" %></p>
+                
               </div>
               <div class="modal-footer">
-                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <p><%= submit_tag "Subscribe", class: "btn btn-primary" %></p>
+                <p class="text-centered"><%= submit_tag "Subscribe", class: "btn btn-primary" %></p>
               </div>
           <% end %>
         </div>
       </div>
     </div>
 
+    <!-- CV modal  -->
+    <div class="modal fade" id="cvModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog lsize">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">My CV</h4>
+              </div>
+                  <div class="modal-body container">
+                      <%= render partial: "pcv" %>
+                  </div>
+            </div>
+          </div>
+        </div>
+
+    <!-- languages modal  -->
+    <div class="modal fade" id="languagesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Languages learning</h4>
+              </div>
+                  <div class="modal-body container">
+                    <div class="row">
+                      <% Language.all.order(:progress).reverse.each do |c| %>
+                      <div class="col-sm-12">
+                    <div class="col-sm-9">
+                      <div class="progress ">
+                        <div class="progress-bar progress-bar-info progress-bar-striped active lang-bar" role="progressbar" aria-valuenow="<%=c.progress%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=c.progress%>%">
+                          <%=c.name%>
+                          <span class="sr-only"><%=c.progress%>% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <%= image_tag(c.logolang , class: "img-responsive") %>
+                    </div>
+                  </div>
+                    <%end%>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+    <!-- meetings modal  -->
+    <div class="modal fade" id="meetingsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Events</h4>
+              </div>
+                  <div class="modal-body container">
+                    <div class="row">
+
+                    <% Meeting.all.order(:date).reverse.each do |meet|%>
+                      <div class="col-sm-4 text-center">
+                        <%= link_to image_tag(meet.flyer , class: "img-responsive image-rounded"), meet.url%>
+                        <h4><%= meet.name %> </h4>
+                        <p class="place"><%=meet.place%></p>
+                        <p class="date"><%=meet.date.to_date%></p>
+                      </div>
+                    <%end%>
+                  </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+
+    <!-- friends modal  -->
+    <div class="modal fade" id="friendsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">List of friends</h4>
+              </div>
+                  <div class="modal-body container">
+                    <div class="row">
+
+                    <% Friend.all.order(:created_at).reverse.each do |friend|%>
+                      <div class="col-sm-4 text-center">
+                        <%= link_to image_tag(friend.logobrand ,size:"120", class: "img-responsive image-rounded img-center"), friend.url%>
+                        <h4><%= friend.name %> </h4>
+                      </div>
+                    <%end%>
+                  </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- projects modal  -->
+        <div class="modal fade" id="projectsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog xlsize">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">List of Projects</h4>
+                  </div>
+                      <div class="modal-body container">
+                        <div class="row">
+
+                        <% Project.all.order(:created_at).each do |proj|%>
+                        <% a=[proj.lang_id1, proj.lang_id2, proj.lang_id3, proj.lang_id4, proj.lang_id4, proj.lang_id5, proj.lang_id6]%>
+                          <div class="col-sm-12 col-md-7 text-center">
+                            <%= link_to image_tag(proj.visual , class: "img-responsive image-rounded img-center"), proj.client_url%>
+                          </div>
+                            <div class="col-sm-12 col-md-5 text-center">
+                            <h4><%= proj.name %> </h4>
+                            <p><%=proj.description%></p>
+                            <p><% 6.times do |i|%>
+                            <% if a[i] != nil%>
+                              <%= image_tag(Language.where(id:a[i]).first.logolang, size:"50")%>,
+                            <%end%>
+                            <%end%></p>
+                            <div class="progress ">
+                              <div class="progress-bar progress-bar-info progress-bar-striped active lang-bar" role="progressbar" aria-valuenow="<%=proj.progress%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=proj.progress%>%">
+                                <%=proj.name%>
+                                <span class="sr-only"><%=proj.progress%>% Complete</span>
+                              </div>
+                            </div>
+                          </div>
+                        <%end%>
+                      </div>
+                      </div>
+                </div>
+              </div>
+            </div>
 
 
 
@@ -27,10 +163,10 @@
 <div class="container">
 
   <header class="row">
-    <div class="identity col-sm-12 col-md-5 col-lg-5">
+    <div class="identity col-sm-12 col-md-8 col-lg-5 col-md-offset-2 col-lg-offset-0">
       <div class="row">
 
-        <div class="idtexte col-sm-7">
+        <div class="idtexte col-sm-7 col-sm-offset-1 col-lg-9 col-lg-offset-0">
           <h1>Guillaume Manier</h1>
           <h5 class="text-center">Mobile & Web Developper</h6>
 
@@ -43,41 +179,45 @@
           <p class="grade text-center">(junior)</p>
         </div>
 
-        <div class="idpic col-sm-3">
+        <div class="idpic hidden-xs  col-xs-2  col-md-3 col-lg-3">
           <img src="/img/moi.jpg" alt="Guillaume Manier" class="img-circle img-responsive"/>
         </div>
 
       </div>
     </div>
 
-    <div class="followme col-sm-4 col-md-3 col-lg-3">
+    <div class="followme col-xs-12 col-sm-4 col-md-4 col-md-offset-1 col-lg-3 col-lg-offset-0">
       <h3>Follow me</h3>
       <p class="iconsfollow text-center">
-        <i class="fa fa-facebook-square fa-3x"></i>
-        <i class="fa fa-twitter-square fa-3x"></i>
-        <i class="fa fa-github-square fa-3x"></i>
-        <i class="fa fa-linkedin-square fa-3x"></i>
+        <a href="https://www.facebook.com/guillaumem59"><i class="fa fa-facebook-square fa-3x"></i></a>
+        <a href="https://twitter.com/guillaume_m59"><i class="fa fa-twitter-square fa-3x"></i></a>
+        <a href="https://github.com/GuillaumeM59"><i class="fa fa-github-square fa-3x"></i></a>
+        <a href=""><i class="fa fa-linkedin-square fa-3x"></i></a>
       </p>
     </div>
-    <div class="getinfos col-sm-12 col-md-4 col-lg-4">
+    <div class="getinfos col-xs-12 col-sm-8 col-md-6 col-lg-4">
       <div class="row">
 
-        <div class="subscribe col-sm-6">
+        <div class="subscribe col-xs-6">
           <h3>Subscribe</h3>
           <p class="text-center">
-            <a role="button" name="button" data-toggle="modal" href="#myModal" class="btn btn-default"><i class="fa fa-envelope-o fa-3x"></i> Newsletter</a>
+            <button type="button" name="button" data-toggle="modal" href="#subsModal"><i class="fa fa-envelope-o fa-3x"></i> Newsletter</button>
           </p>
         </div>
 
-        <div class="getcv col-sm-6">
+        <div class="getcv col-xs-6">
           <h3>Get my CV</h3>
           <p class="cvbtns text-center">
-            <button type="button" name="button"class="cvseebtn">
+            <button type="button" name="button" class="cvseebtn" data-toggle="modal" href="#cvModal">
               <i class="fa fa-eye fa-3x"></i>
             </button>
+      <a href="/static_pages/getcv">
+
             <button type="button" name="button" class="cvdlbtn">
               <i class="fa fa-download fa-3x"></i>
             </button>
+          </a>
+
           </p>
         </div>
 
@@ -90,20 +230,14 @@
     <section class="col-sm-12 col-md-8 col-lg-9">
       <div class="row">
 
-        <div class="aboutme panel col-sm-12 col-md-8 col-lg-7">
-          <h4>About Me</h4>
-          <p>
+        <div class="aboutme  col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center head-text">
 
-          </p>
-          <button type="button" name="button"><i class="fa fa-plus"></i> more meetings</button>
-        </div>
-        <div class="meeting panel col-sm-12 col-md-4 col-lg-4 col-lg-offset-1">
-          <h4>Next Meetings</h4>
+                        <h1 class="tagline">I<span id="typed"></span></h1>
+                        <h4 class="sub-tagline">Mobile & Web Developer / Front & Back -end</h4>
 
-          <button type="button" name="button"><i class="fa fa-plus"></i> more meetings</button>
         </div>
-        <div class="carou panel col-sm-12 col-md-12 col-lg-12">
-          <h4>Latest Projects</h4>
+
+        <div class="carou col-sm-12 col-md-12 col-lg-12 text-center">
 
           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -115,19 +249,50 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-              <div class="item active">
-                <img src="..." alt="...">
-                <div class="carousel-caption">
-                  ...
-                </div>
-              </div>
-              <div class="item">
-                <img src="..." alt="...">
-                <div class="carousel-caption">
-                  ...
-                </div>
-              </div>
-              ...
+              <% b=1%>
+              <% Project.all.each do |proj|%>
+              <% a=[proj.lang_id1, proj.lang_id2, proj.lang_id3, proj.lang_id4, proj.lang_id4, proj.lang_id5, proj.lang_id6]%>
+                    <%if b==1 %>
+                    <div class="item active">
+                      <%= image_tag(proj.visual , class: "img-responsive img-thumbnail")%>
+                      <div class="carousel-caption text-center">
+                      <h3><%= proj.name%></h3>
+                      <p>
+                        <%= proj.description %>
+                      </p>
+                      <p>
+                        Technos: <% 6.times do |i|%>
+                        <% if a[i]!= nil%>
+                          <%= image_tag(Language.where(id:a[i]).first.logolang, size:"20")%>,
+                        <%end%>
+                        <%end%>
+                      </p>
+
+                      </div>
+                    </div>
+                    <%else%>
+                       <% if b<4%>
+                      <div class="item">
+                        <%= image_tag(proj.visual , class: "img-responsive img-thumbnail")%>
+                        <div class="carousel-caption text-center">
+                        <h3><%= proj.name%></h3>
+                        <p>
+                          <%= proj.description %>
+                        </p>
+                        <p>
+                          Technos: <% 6.times do |i|%>
+                          <% if a[i]!= nil%>
+                            <%= image_tag(Language.where(id:a[i]).first.logolang, size:"20")%>,
+                          <%end%>
+                          <%end%>
+                        </p>
+                        </div>
+                      </div>
+                      <%end%>
+                    <%end%>
+
+                <% b = b+1 %>
+              <%end%>
             </div>
 
             <!-- Controls -->
@@ -141,21 +306,32 @@
             </a>
           </div>
 
-          <button type="button" name="button"><i class="fa fa-plus"></i> more meetings</button>
+          <button type="button" name="button" data-toggle="modal" href="#projectsModal"><i class="fa fa-plus"></i> more projects</button>
         </div>
       </div>
     </section>
-    <article class="col-sm-12 col-md-4 col-lg-3">
-      <div class="madewith panel col-sm-12">
-        <h4>Made with</h4>
+    <aside class="col-sm-12 col-md-4 col-lg-3">
+      <div class="meeting col-sm-12 text-center panel">
+        <h4>Next Meetings</h4>
+        <div class="row">
 
+        <% Meeting.all.order(:date).each do |meet|%>
+          <div class="col-xs-4 text-center">
+            <%= link_to image_tag(meet.flyer , class: "img-responsive image-rounded"), meet.url%>
+            <p class="place"><%=meet.place%></p>
+            <p class="date"><%=meet.date.to_date%></p>
+          </div>
+        <%end%>
       </div>
-      <div class="madewith panel col-sm-12">
+        <button type="button" name="button" data-toggle="modal" href="#meetingsModal"><i class="fa fa-plus"></i> more meetings</button>
+      </div>
+
+      <div class="learning panel col-sm-12 text-center">
         <h4>Learning Progress</h4>
         <ul class="learn list-unstyled">
           <% Language.all.each do |lang| %>
           <li class="row">
-            <div class="col-sm-9">
+            <div class="col-xs-9">
               <div class="progress ">
                 <div class="progress-bar progress-bar-info progress-bar-striped active lang-bar" role="progressbar" aria-valuenow="<%=lang.progress%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=lang.progress%>%">
                   <%=lang.name%>
@@ -163,48 +339,39 @@
                 </div>
               </div>
             </div>
+            <div class="col-xs-2">
+              <%= image_tag(lang.logolang , class: "img-responsive") %>
+            </div>
           </li>
           <%end%>
         </ul>
-        <button type="button" name="button"><i class="fa fa-plus"></i> see all techno.</button>
+        <button type="button" name="button" data-toggle="modal" href="#languagesModal"><i class="fa fa-plus"></i> see all techno.</button>
       </div>
-    </article>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <div class="madewith panel col-sm-12 text-center">
+        <h4>Made with</h4>
+        <div class="row">
+            <% Friend.all.each do |friend|%>
+              <div class="col-xs-4">
+                <%= link_to image_tag(friend.logobrand , class: "img-responsive img-rounded"), friend.url%>
+              </div>
+            <%end%>
+        </div>
+        <button type="button" name="button" data-toggle="modal" href="#friendsModal"><i class="fa fa-plus"></i> see all friends</button>
+      </div>
+    </aside>
 
 
 </div>
+<script>
+    $("#typed").typed({
+        strings: [" was a dj"," was an animator "," was a sciences teacher"," was a candies-maker"," placed my bags ...", "'m Guillaume."],
+        typeSpeed: 30,
+        callback: function(){
+            lift();
+        }
+    });
+    function lift(){
+        $(".head-text").addClass("lift-text");
+    }
+</script>

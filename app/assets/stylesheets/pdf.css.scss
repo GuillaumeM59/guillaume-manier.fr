@@ -1,0 +1,39 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+@include make-grid(sm);
+@include make-grid(md);
+@include make-grid(lg);
+
+@import "theme.css";
+
+
+
+
+.pdfdiv{
+  width:47%;
+  display: inline-block;
+margin-left: 2%
+}
+h1,h2,h3,h4 {
+  text-align: center;
+}
+.progress-bar-info {background-color: rgb(72, 73, 73) !important}
+.cv {background-color: white ;
+color: black;
+padding-left: 5%;
+font-size: 1.2em
+}
+.num6 {
+  padding-bottom: 5%
+}
+.cv .progress {margin-top: 5%;
+border: 1px solid black}
+.cv h1, .cv h3 {font-weight: bold}
+.cv h2, .cv h3 {color: rgb(12, 14, 78)}
+.cv h1, .cv h3 {color: rgb(12, 14, 78)}
+.cv ul li,.hobbies p {font-size: 1em; margin: 1% 0; line-height: 1.2}
+.cv ul li ul li {font-size: 0.9em; margin: 1% 2%; line-height: 1.2}

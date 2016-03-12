@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :friends
   resources :meetings
   get 'static_pages/home'
+  get 'static_pages/getcv'
+
 
   resources :subscribers
   resources :languages

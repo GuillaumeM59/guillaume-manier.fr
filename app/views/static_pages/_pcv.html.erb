@@ -1,0 +1,147 @@
+   <meta charset='utf-8' />
+   <% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<%= wicked_pdf_stylesheet_link_tag('pdf.css')%>
+ <%end%>
+
+
+
+
+<div class="container-fluid cv">
+  <div class="row">
+    <% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<div class="pdfdiv">
+<%else%>
+<div class="col-sm-12 col-md-7">
+    <%end%>
+
+
+<h2>MANIER Guillaume</h2>
+<h1>Développeur Web Junior</h1>
+</div>
+
+<% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<div class="pdfdiv num2">
+<%else%>
+<div class="col-sm-12 col-md-5">
+  <%end%>
+<ul class="list-unstyled text-center civil">
+<li>+33 (0)6 49 72 89 65</li>
+<li>dev.guillaumem59@gmail.com</li>
+<li>9 rue de lorraine Porte 4</li>
+<li>59100 ROUBAIX</li>
+<li>28 ans, Français</li>
+<li>Permis B véhiculé</li>
+</ul>
+</div>
+<% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<div class="pdfdiv">
+<%else%>
+<div class="col-sm-12 col-md-7">
+  <%end%>
+
+  <h3>Compétences (au <%= Time.current.to_date%>)</h3>
+  <div class="row">
+    <% Language.all.order(:progress).reverse.each do |c| %>
+    <% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<div style="width:45%;display:inline-block">
+    <%else%>
+    <div class="col-sm-12 col-md-6">
+        <%end%>
+      <div class="row">
+
+
+        <div class="col-xs-9">
+    <div class="progress ">
+      <div class="progress-bar progress-bar-info progress-bar-striped active lang-bar" role="progressbar" aria-valuenow="<%=c.progress%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=c.progress%>%">
+        <%=c.name%>
+        <span class="sr-only"><%=c.progress%>% Complete</span>
+      </div>
+    </div>
+  </div>
+  <% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+  <%else%>
+  <div class="col-xs-2">
+    <% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+    <%imgurl = Rails.root.to_s + "/public" + c.logolang.to_s %>
+    <%= image_tag( imgurl , size: "30" , class: "img-responsive") %>
+    <%else%>
+    <%= image_tag(c.logolang , class: "img-responsive") %>
+    <%end%>
+  </div>
+  <%end%>
+</div>
+</div>
+<%end%>
+</div>
+
+</div>
+<% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<div class="pdfdiv">
+<%else%>
+<div class="col-sm-12 col-md-5">
+  <%end%>
+
+<h3>Formations</h3>
+<ul class="list-unstyled text-center">
+<li>< 2015-2016 SIMPLON Roubaix ></li>
+<li>< 2011 Prépa. CAPES S.physiques & CAPLP Maths, IUFM Lille></li>
+<li>< 2010 niveau MASTER 1 : Sciences de la matière, USTL></li>
+<li>< 2008 Licence S.Physiques, ULCO></li>
+<li>< 2005 Baccalauréat S></li>
+</ul>
+</div>
+
+<% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<div class="pdfdiv">
+<%else%>
+<div class="col-sm-12 col-md-6">
+  <%end%>
+
+<h3>Expériences</h3>
+<ul class="list-unstyled">
+
+<li>2011-2015  Confiseur (autoentrepreneur)
+<ul class="list-unstyled"><li>Fabrication et vente sur évènementiels
+Boutique en ligne (prestashop, non renouvelé par les nouveaux propriétaires)
+</li></ul></li>
+<li>2008-2011  Employé Polyvalent Saisonnier
+<ul class="list-unstyled"><li>Camping Le Beaucamp ( Ambleteuse 62)
+Chargé d'animation tout public
+Technicien Audiovisuel, entretien des espaces, aide à la personne.
+Employé petite restauration, secrétariat,
+</li></ul></li>
+<li>2004-2008  Animateur Centre de loisir (7-9 ans) chaque vacances
+</li>
+</ul>
+</div>
+
+
+<% if current_page?(:controller => 'static_pages', :action => 'getcv') %>
+<div class="pdfdiv num6">
+<%else%>
+<div class="col-sm-12 col-md-6">
+  <%end%>
+
+<h3>Réalisations</h3>
+<ul class="text-center list-unstyled">
+
+<li>Portfolio personnel ( chronologie simplon):<br>https://guillaume-manier.fr</li>
+<Li>Le site dont vous êtes le héro (en équipe):<br> www.playmystory.fr</li>
+<li>InterSimplon 2016 (en équipe) :<br>
+co-shop.fr</li>
+<li>Société PEEPSO Tourcoing :en cours</li>
+</div>
+</ul>
+
+<div class="col-xs-12 hobbies">
+
+<h3>Loisirs</h3>
+<p class="text-center">Séries, musique (auditeur), nouvelles technologies, arts pyrotechniques (spectateur), ...
+</p>
+</div>
+
+
+
+
+</div>
+</div>

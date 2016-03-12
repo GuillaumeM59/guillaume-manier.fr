@@ -20,10 +20,18 @@ gem 'bootstrap_form'
 # Css & Js library
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem "typedjs-rails"
 
+
+#PDF
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 # Hook locally mail
 # Run deamon by call him in termilal like so : maicatcher
 # Then go  http://127.0.0.1:1080
+
+
+
 
 
 # Use jquery as the JavaScript library
@@ -67,3 +75,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+gem 'capistrano', '~> 3.4.0'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
+gem 'capistrano-rvm', github: "capistrano/rvm"
+gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'

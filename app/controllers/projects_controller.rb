@@ -70,6 +70,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :client, :description, :progress, :visual, :visual_cache)
+      params.require(:project).permit(:name, :client, :description, :progress,:langsused, :visual, :visual_cache)
     end
 end

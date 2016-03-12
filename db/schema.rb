@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307210048) do
+ActiveRecord::Schema.define(version: 20160311102628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160307210048) do
     t.datetime "updated_at",  null: false
     t.string   "flyer"
     t.string   "flyer_cache"
+    t.string   "url"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -55,6 +56,12 @@ ActiveRecord::Schema.define(version: 20160307210048) do
     t.string   "visual_cache"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "lang_id1"
+    t.string   "lang_id2"
+    t.string   "lang_id3"
+    t.string   "lang_id4"
+    t.string   "lang_id5"
+    t.string   "lang_id6"
   end
 
   create_table "subscribers", force: :cascade do |t|
