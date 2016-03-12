@@ -1,3 +1,4 @@
+set :rails_env, 'production'
 # Load DSL and Setup Up Stages
 require 'capistrano/setup'
 
@@ -31,4 +32,3 @@ require 'capistrano/sidekiq'
 require 'capistrano/sidekiq/monit'
 set :rvm_type, :user
 set :rvm_ruby_version, '2.2.3-p173'
-set :rails_env, 'production'

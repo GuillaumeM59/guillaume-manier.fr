@@ -1,6 +1,6 @@
 # config valid only for Capistrano 3.1
 lock '3.4.0'
-
+require 'bundler/capistrano'
 set :application, 'Portfolio'
 set :repo_url, 'git@github.com:GuillaumeM59/guillaume-manier.fr.git'
 set :deploy_to, '/home/deploy/portfolio'

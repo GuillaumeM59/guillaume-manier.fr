@@ -1,0 +1,9 @@
+/home/guillaume/.rvm/rubies/ruby-2.2.3/bin/ruby -r ./siteconf20160312-542-ftpjum.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+make: Rien à faire pour « all ».
+
+make "DESTDIR=" install
